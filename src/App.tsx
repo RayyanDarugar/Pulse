@@ -15,7 +15,7 @@ import Settings from './pages/Settings';
 const App: React.FC = () => {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Navigate to="/landing" replace />} />
