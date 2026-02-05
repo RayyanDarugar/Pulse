@@ -1,0 +1,7 @@
+{
+    "id": "user_current",
+    "name": "Alex Demo",
+    "email": "alex@example.com",
+    "balance": 5000.00,
+    "portfolio": {}
+}
