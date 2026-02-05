@@ -1,0 +1,126 @@
+[
+  {
+    "id": "1",
+    "name": "Sarah Jenkins",
+    "handle": "sarahj_art",
+    "shortBio": "Digital artist & illustrator exploring surrealism.",
+    "longBio": "I am a digital artist based in Portland, OR. My work focuses on surreal landscapes and character design. Owning my token gives you access to exclusive WIPs, high-res downloads, and voting rights on my next series.",
+    "imageUrl": "https://picsum.photos/seed/sarah/600/400",
+    "initialTokenPrice": 1.25,
+    "tokenSupply": 100000,
+    "socialLinks": {
+      "twitter": "https://twitter.com/placeholder",
+      "instagram": "https://instagram.com/placeholder"
+    },
+    "tags": ["Art", "Digital", "Illustration"],
+    "region": "North America"
+  },
+  {
+    "id": "2",
+    "name": "Davide Rossi",
+    "handle": "d_rossi_music",
+    "shortBio": "Indie electronic producer. Building the future of sound.",
+    "longBio": "Creating sonic landscapes that transport you. Join my community to help curate my next album, get backstage access, and royalties from future streams (mock).",
+    "imageUrl": "https://picsum.photos/seed/davide/600/400",
+    "initialTokenPrice": 0.85,
+    "tokenSupply": 250000,
+    "socialLinks": {
+      "spotify": "https://spotify.com/placeholder",
+      "youtube": "https://youtube.com/placeholder"
+    },
+    "tags": ["Music", "Electronic", "Indie"],
+    "region": "Europe"
+  },
+  {
+    "id": "3",
+    "name": "Tech Explained",
+    "handle": "techexplained_yt",
+    "shortBio": "Demystifying complex tech topics for everyone.",
+    "longBio": "We break down the latest in AI, crypto, and gadgetry. Token holders get early access to videos and can propose topics for deep dives.",
+    "imageUrl": "https://picsum.photos/seed/tech/600/400",
+    "initialTokenPrice": 2.50,
+    "tokenSupply": 500000,
+    "socialLinks": {
+      "youtube": "https://youtube.com/placeholder"
+    },
+    "tags": ["Tech", "Education", "Video"],
+    "region": "Global"
+  },
+  {
+    "id": "4",
+    "name": "Maya Singh",
+    "handle": "mayacooks",
+    "shortBio": "Plant-based recipes for the modern soul.",
+    "longBio": "Cooking should be easy, healthy, and delicious. Support my journey to write my first cookbook and open a pop-up restaurant.",
+    "imageUrl": "https://picsum.photos/seed/maya/600/400",
+    "initialTokenPrice": 0.55,
+    "tokenSupply": 150000,
+    "socialLinks": {
+      "instagram": "https://instagram.com/placeholder",
+      "tiktok": "https://tiktok.com/placeholder"
+    },
+    "tags": ["Food", "Lifestyle", "Cooking"],
+    "region": "Asia"
+  },
+  {
+    "id": "5",
+    "name": "GameZone Pro",
+    "handle": "gz_pro",
+    "shortBio": "Top tier esports commentary and analysis.",
+    "longBio": "Deep dives into the meta of your favorite competitive games. Token holders enter exclusive tournaments and coaching sessions.",
+    "imageUrl": "https://picsum.photos/seed/game/600/400",
+    "initialTokenPrice": 1.10,
+    "tokenSupply": 300000,
+    "socialLinks": {
+      "twitch": "https://twitch.tv/placeholder"
+    },
+    "tags": ["Gaming", "Esports"],
+    "region": "North America"
+  },
+  {
+    "id": "6",
+    "name": "Elena C",
+    "handle": "elena_writes",
+    "shortBio": "Sci-fi author building new worlds.",
+    "longBio": "Writing the next great space opera. Join the 'Crew' (token holders) to name characters, ships, and influence the plot.",
+    "imageUrl": "https://picsum.photos/seed/elena/600/400",
+    "initialTokenPrice": 0.40,
+    "tokenSupply": 100000,
+    "socialLinks": {
+      "medium": "https://medium.com/placeholder"
+    },
+    "tags": ["Writing", "Fiction", "Sci-Fi"],
+    "region": "South America"
+  },
+  {
+    "id": "7",
+    "name": "FitLife with Marcus",
+    "handle": "fit_marcus",
+    "shortBio": "Holistic fitness & mental health.",
+    "longBio": "Fitness is more than just lifting weights. It's about mindset. Join my challenge and get exclusive workout plans.",
+    "imageUrl": "https://picsum.photos/seed/marcus/600/400",
+    "initialTokenPrice": 1.75,
+    "tokenSupply": 200000,
+    "socialLinks": {
+      "youtube": "https://youtube.com/placeholder",
+      "instagram": "https://instagram.com/placeholder"
+    },
+    "tags": ["Fitness", "Health", "Lifestyle"],
+    "region": "Europe"
+  },
+  {
+    "id": "8",
+    "name": "Crypto Daily",
+    "handle": "cryptodaily_news",
+    "shortBio": "Daily crypto market analysis and news.",
+    "longBio": "Staying ahead of the curve in Web3. Token holders get acts as a subscription to my premium newsletter and alpha group.",
+    "imageUrl": "https://picsum.photos/seed/crypto/600/400",
+    "initialTokenPrice": 3.00,
+    "tokenSupply": 1000000,
+    "socialLinks": {
+      "twitter": "https://twitter.com/placeholder"
+    },
+    "tags": ["Crypto", "Finance", "News"],
+    "region": "Global"
+  }
+]
