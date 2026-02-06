@@ -39,9 +39,9 @@ const Landing = () => {
                                 >
                                     Explore Markets <ArrowRight size={20} />
                                 </Link>
-                                <button className="px-8 py-4 rounded-full border border-neutral-divider text-neutral-muted font-medium hover:text-neutral-strong hover:bg-white transition-all">
-                                    How it works
-                                </button>
+                                <Link to="/how-it-works" className="inline-flex items-center gap-2 bg-white text-gray-900 border border-gray-200 hover:bg-gray-50 px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-sm">
+                                    How it Works
+                                </Link>
                             </div>
                             <p className="mt-4 text-sm text-neutral-muted flex items-center gap-2">
                                 <span className="w-2 h-2 rounded-full bg-positive animate-pulse" /> No funds required for demo
