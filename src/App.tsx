@@ -12,11 +12,18 @@ import Dashboard from './pages/Dashboard';
 import Auth from './pages/Auth';
 import Settings from './pages/Settings';
 
+import TikTokFeed from './pages/demo/TikTokFeed';
+import TikTokProfile from './pages/demo/TikTokProfile';
+
 const App: React.FC = () => {
   return (
     <AuthProvider>
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
+          {/* Demo Flow Routes (Full Screen, No Layout) */}
+          <Route path="/demo/feed" element={<TikTokFeed />} />
+          <Route path="/demo/profile" element={<TikTokProfile />} />
+
           <Route element={<Layout />}>
             <Route path="/" element={<Navigate to="/landing" replace />} />
             <Route path="/landing" element={<Landing />} />
