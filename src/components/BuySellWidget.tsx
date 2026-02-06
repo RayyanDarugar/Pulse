@@ -71,15 +71,15 @@ const BuySellWidget: React.FC<BuySellWidgetProps> = ({ creator, currentPrice, on
     const canBuy = mode === 'buy' && (user?.balance || 0) >= total;
 
     return (
-        <div className="bg-white rounded-2xl shadow-sm ring-1 ring-gray-900/5 p-6">
+        <div className="bg-neutral-card rounded-2xl shadow-sm ring-1 ring-neutral-divider p-6">
             <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-gray-900">Trade {creator.name} Token</h3>
-                <div className="flex bg-gray-100 rounded-lg p-1">
+                <h3 className="text-lg font-semibold text-neutral-strong">Trade {creator.name} Token</h3>
+                <div className="flex bg-neutral-bg rounded-lg p-1 border border-neutral-divider">
                     <button
                         onClick={() => setMode('buy')}
                         className={clsx(
                             "px-4 py-1.5 text-sm font-medium rounded-md transition-all",
-                            mode === 'buy' ? "bg-white shadow text-indigo-600" : "text-gray-500 hover:text-gray-700"
+                            mode === 'buy' ? "bg-neutral-strong shadow text-neutral-bg" : "text-neutral-muted hover:text-neutral-strong"
                         )}
                     >
                         Buy
@@ -88,7 +88,7 @@ const BuySellWidget: React.FC<BuySellWidgetProps> = ({ creator, currentPrice, on
                         onClick={() => setMode('sell')}
                         className={clsx(
                             "px-4 py-1.5 text-sm font-medium rounded-md transition-all",
-                            mode === 'sell' ? "bg-white shadow text-indigo-600" : "text-gray-500 hover:text-gray-700"
+                            mode === 'sell' ? "bg-neutral-strong shadow text-neutral-bg" : "text-neutral-muted hover:text-neutral-strong"
                         )}
                     >
                         Sell
@@ -98,49 +98,49 @@ const BuySellWidget: React.FC<BuySellWidgetProps> = ({ creator, currentPrice, on
 
             <div className="space-y-4">
                 <div>
-                    <label htmlFor="quantity" className="block text-sm font-medium text-gray-700">Quantity</label>
+                    <label htmlFor="quantity" className="block text-sm font-medium text-neutral-strong">Quantity</label>
                     <div className="mt-1 relative rounded-md shadow-sm">
                         <input
                             type="number"
                             name="quantity"
                             id="quantity"
                             min="1"
-                            className="block w-full rounded-md border-0 py-3 pl-4 pr-12 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            className="block w-full rounded-md border-neutral-divider bg-neutral-bg py-3 pl-4 pr-12 text-neutral-strong ring-1 ring-inset ring-neutral-divider placeholder:text-neutral-muted focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
                             value={quantity}
                             onChange={(e) => setQuantity(e.target.value)}
                         />
                         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-                            <span className="text-gray-500 sm:text-sm">TKN</span>
+                            <span className="text-neutral-muted sm:text-sm">TKN</span>
                         </div>
                     </div>
                     {mode === 'sell' && (
-                        <p className="mt-1 text-xs text-gray-500 text-right">Available: {userPortfolioQty} TKN</p>
+                        <p className="mt-1 text-xs text-neutral-muted text-right">Available: {userPortfolioQty} TKN</p>
                     )}
                 </div>
 
-                <div className="bg-gray-50 rounded-lg p-4 space-y-2">
-                    <div className="flex justify-between text-sm text-gray-500">
+                <div className="bg-neutral-bg rounded-lg p-4 space-y-2 border border-neutral-divider">
+                    <div className="flex justify-between text-sm text-neutral-muted">
                         <span>Price per token</span>
                         <span>${currentPrice.toFixed(2)}</span>
                     </div>
-                    <div className="flex justify-between text-sm text-gray-500">
+                    <div className="flex justify-between text-sm text-neutral-muted">
                         <span>Fee (1%)</span>
                         <span>${fee.toFixed(2)}</span>
                     </div>
-                    <div className="pt-2 border-t border-gray-200 flex justify-between font-semibold text-gray-900">
+                    <div className="pt-2 border-t border-neutral-divider flex justify-between font-semibold text-neutral-strong">
                         <span>Total</span>
                         <span>${total.toFixed(2)}</span>
                     </div>
                 </div>
 
                 {isAuthenticated && mode === 'buy' && (
-                    <div className="text-xs text-right text-gray-500">
+                    <div className="text-xs text-right text-neutral-muted">
                         Wallet Balance: ${user?.balance.toFixed(2)}
                     </div>
                 )}
 
                 {message && (
-                    <div className={clsx("rounded-md p-3 flex items-start gap-2 text-sm", message.type === 'success' ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700")}>
+                    <div className={clsx("rounded-md p-3 flex items-start gap-2 text-sm", message.type === 'success' ? "bg-green-900/30 text-green-400 border border-green-900/50" : "bg-red-900/30 text-red-400 border border-red-900/50")}>
                         {message.type === 'success' ? <CheckCircle2 size={16} className="mt-0.5" /> : <AlertCircle size={16} className="mt-0.5" />}
                         {message.text}
                     </div>
@@ -151,14 +151,14 @@ const BuySellWidget: React.FC<BuySellWidgetProps> = ({ creator, currentPrice, on
                     disabled={isLoading || (isAuthenticated && mode === 'sell' && !canSell) || (isAuthenticated && mode === 'buy' && !canBuy)}
                     className={clsx(
                         "w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-semibold text-white focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors",
-                        mode === 'buy' ? "bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500" : "bg-pink-600 hover:bg-pink-700 focus:ring-pink-500",
+                        mode === 'buy' ? "bg-primary hover:bg-primary-start focus:ring-primary" : "bg-pink-600 hover:bg-pink-700 focus:ring-pink-500",
                         (isLoading || (isAuthenticated && mode === 'sell' && !canSell) || (isAuthenticated && mode === 'buy' && !canBuy)) && "opacity-50 cursor-not-allowed"
                     )}
                 >
                     {isLoading ? <Loader2 className="animate-spin h-5 w-5" /> : (mode === 'buy' ? (isAuthenticated && !canBuy ? 'Insufficient Funds' : 'Buy Tokens') : (isAuthenticated && !canSell ? 'Insufficient Tokens' : 'Sell Tokens'))}
                 </button>
 
-                <p className="text-xs text-center text-gray-400 mt-2">
+                <p className="text-xs text-center text-neutral-muted mt-2">
                     This is a mock transaction. No real funds are moved.
                 </p>
             </div>

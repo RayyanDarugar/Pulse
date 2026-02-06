@@ -18,7 +18,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
     return (
         <Link
             to={`/creator/${creator.id}`}
-            className="group relative flex flex-col bg-white rounded-card border border-neutral-divider shadow-soft transition-all duration-200 hover:translate-y-[-6px] hover:shadow-glow hover:border-primary/30 overflow-hidden"
+            className="group relative flex flex-col bg-neutral-card rounded-card border border-neutral-divider shadow-soft transition-all duration-200 hover:translate-y-[-6px] hover:shadow-glow hover:border-primary/30 overflow-hidden"
         >
             {/* Top area: Avatar + Info */}
             <div className="p-4 flex items-start justify-between">
@@ -27,10 +27,10 @@ const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
                         <img
                             src={creator.imageUrl}
                             alt={creator.name}
-                            className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm"
+                            className="w-12 h-12 rounded-full object-cover border-2 border-neutral-bg shadow-sm"
                             loading="lazy"
                         />
-                        <div className="absolute -bottom-1 -right-1 bg-green-500 w-3 h-3 rounded-full border-2 border-white" />
+                        <div className="absolute -bottom-1 -right-1 bg-green-500 w-3 h-3 rounded-full border-2 border-neutral-bg" />
                     </div>
                     <div>
                         <h3 className="text-neutral-strong font-semibold leading-tight group-hover:text-primary transition-colors">
@@ -61,7 +61,7 @@ const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
                             className={`flex-1 rounded-t-sm transition-all duration-300 group-hover:bg-primary`}
                             style={{
                                 height: `${val}%`,
-                                backgroundColor: i === sparklineData.length - 1 ? '#10B981' : '#E6E9F2'
+                                backgroundColor: i === sparklineData.length - 1 ? '#10B981' : 'rgba(255,255,255,0.1)'
                             }}
                         />
                     ))}
@@ -74,8 +74,8 @@ const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
             </div>
 
             {/* Bottom: Action */}
-            <div className="p-4 mt-auto border-t border-neutral-divider/50 bg-neutral-bg/30">
-                <button className="w-full py-2 rounded-lg bg-white border border-neutral-divider text-sm font-medium text-neutral-strong group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all">
+            <div className="p-4 mt-auto border-t border-neutral-divider bg-neutral-bg/30">
+                <button className="w-full py-2 rounded-lg bg-neutral-bg border border-neutral-divider text-sm font-medium text-neutral-strong group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all">
                     Trade Token
                 </button>
             </div>

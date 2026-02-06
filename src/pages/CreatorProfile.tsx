@@ -73,12 +73,12 @@ const CreatorProfile: React.FC = () => {
                     {/* Main Content (Left) */}
                     <div className="flex-1 min-w-0">
                         {/* Profile Header Block */}
-                        <div className="bg-white rounded-2xl shadow-soft p-6 sm:p-8 mb-8">
+                        <div className="bg-neutral-card rounded-2xl shadow-soft p-6 sm:p-8 mb-8 border border-neutral-divider">
                             <div className="flex flex-col sm:flex-row gap-6 items-start">
                                 <img
                                     src={creator.imageUrl}
                                     alt={creator.name}
-                                    className="w-32 h-32 rounded-full border-4 border-white shadow-lg object-cover"
+                                    className="w-32 h-32 rounded-full border-4 border-neutral-bg shadow-lg object-cover"
                                 />
                                 <div className="flex-1 pt-2">
                                     <div className="flex flex-wrap items-center gap-3 mb-2">
@@ -89,17 +89,17 @@ const CreatorProfile: React.FC = () => {
                                     <p className="text-neutral-muted text-lg mb-4">@{creator.handle} • {creator.region}</p>
                                     <div className="flex gap-3">
                                         {creator.socialLinks.website && (
-                                            <a href={creator.socialLinks.website} target="_blank" rel="noreferrer" className="p-2 rounded-full bg-neutral-100 text-neutral-600 hover:bg-neutral-200 transition-colors">
+                                            <a href={creator.socialLinks.website} target="_blank" rel="noreferrer" className="p-2 rounded-full bg-neutral-bg text-neutral-muted hover:text-neutral-strong hover:bg-neutral-divider transition-colors">
                                                 <Globe size={18} />
                                             </a>
                                         )}
                                         {creator.socialLinks.twitter && (
-                                            <a href={creator.socialLinks.twitter} target="_blank" rel="noreferrer" className="p-2 rounded-full bg-neutral-100 text-neutral-600 hover:bg-neutral-200 transition-colors">
+                                            <a href={creator.socialLinks.twitter} target="_blank" rel="noreferrer" className="p-2 rounded-full bg-neutral-bg text-neutral-muted hover:text-neutral-strong hover:bg-neutral-divider transition-colors">
                                                 <Twitter size={18} />
                                             </a>
                                         )}
                                         {creator.socialLinks.instagram && (
-                                            <a href={creator.socialLinks.instagram} target="_blank" rel="noreferrer" className="p-2 rounded-full bg-neutral-100 text-neutral-600 hover:bg-neutral-200 transition-colors">
+                                            <a href={creator.socialLinks.instagram} target="_blank" rel="noreferrer" className="p-2 rounded-full bg-neutral-bg text-neutral-muted hover:text-neutral-strong hover:bg-neutral-divider transition-colors">
                                                 <Instagram size={18} />
                                             </a>
                                         )}
@@ -125,12 +125,12 @@ const CreatorProfile: React.FC = () => {
                         </div>
 
                         {/* Chart Section */}
-                        <div className="bg-white rounded-2xl shadow-soft p-6 mb-8">
+                        <div className="bg-neutral-card rounded-2xl shadow-soft p-6 mb-8 border border-neutral-divider">
                             <div className="flex items-center justify-between mb-6">
                                 <h3 className="text-xl font-bold text-neutral-strong">Price History</h3>
-                                <div className="flex bg-neutral-bg rounded-lg p-1">
+                                <div className="flex bg-neutral-bg rounded-lg p-1 border border-neutral-divider">
                                     {['24H', '7D', '1M', 'ALL'].map(t => (
-                                        <button key={t} className={`px-3 py-1 text-xs font-medium rounded-md ${t === '7D' ? 'bg-white shadow-sm text-neutral-strong' : 'text-neutral-muted hover:text-neutral-strong'}`}>
+                                        <button key={t} className={`px-3 py-1 text-xs font-medium rounded-md ${t === '7D' ? 'bg-neutral-strong shadow-sm text-neutral-bg' : 'text-neutral-muted hover:text-neutral-strong'}`}>
                                             {t}
                                         </button>
                                     ))}
@@ -146,7 +146,7 @@ const CreatorProfile: React.FC = () => {
                     <div className="w-full lg:w-[400px] shrink-0">
                         <div className="sticky top-24 space-y-6">
                             {/* Mobile Price Display (Visible only on small screens) */}
-                            <div className="sm:hidden bg-white p-4 rounded-xl shadow-sm border border-neutral-divider flex justify-between items-center">
+                            <div className="sm:hidden bg-neutral-card p-4 rounded-xl shadow-sm border border-neutral-divider flex justify-between items-center">
                                 <span className="text-neutral-muted">Current Price</span>
                                 <div className="text-right">
                                     <div className="text-2xl font-mono font-bold">${currentPrice.toFixed(2)}</div>
@@ -157,7 +157,7 @@ const CreatorProfile: React.FC = () => {
                             </div>
 
                             {/* Buy/Sell Widget */}
-                            <div className="bg-white rounded-2xl shadow-soft border border-neutral-divider/50 overflow-hidden">
+                            <div className="bg-neutral-card rounded-2xl shadow-soft border border-neutral-divider overflow-hidden">
                                 <div className="p-4 bg-neutral-bg/50 border-b border-neutral-divider">
                                     <h3 className="font-semibold text-neutral-strong">Trade Token</h3>
                                 </div>
@@ -174,7 +174,7 @@ const CreatorProfile: React.FC = () => {
                             </div>
 
                             {/* Community Stats */}
-                            <div className="bg-white rounded-2xl shadow-soft p-6 border border-neutral-divider/50">
+                            <div className="bg-neutral-card rounded-2xl shadow-soft p-6 border border-neutral-divider">
                                 <h4 className="font-semibold text-neutral-strong mb-4">Market Stats</h4>
                                 <div className="space-y-4">
                                     <div className="flex justify-between items-center">

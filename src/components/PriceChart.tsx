@@ -50,8 +50,8 @@ const PriceChart: React.FC<PriceChartProps> = ({ creatorId, data: providedData }
                 >
                     <defs>
                         <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#4f46e5" stopOpacity={0.3} />
-                            <stop offset="95%" stopColor="#4f46e5" stopOpacity={0} />
+                            <stop offset="5%" stopColor="#6B46FF" stopOpacity={0.3} />
+                            <stop offset="95%" stopColor="#6B46FF" stopOpacity={0} />
                         </linearGradient>
                     </defs>
                     <XAxis
@@ -63,11 +63,12 @@ const PriceChart: React.FC<PriceChartProps> = ({ creatorId, data: providedData }
                         hide
                     />
                     <Tooltip
-                        contentStyle={{ backgroundColor: '#fff', borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
+                        contentStyle={{ backgroundColor: '#171717', borderRadius: '8px', border: '1px solid #262626', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.5)', color: '#F3F4F6' }}
                         labelFormatter={(label) => format(new Date(label), 'MMM d, h:mm a')}
                         formatter={(value: number | undefined) => [value ? `$${value.toFixed(2)}` : '', 'Price']}
+                        labelStyle={{ color: '#9CA3AF' }}
                     />
-                    <Area type="monotone" dataKey="price" stroke="#4f46e5" strokeWidth={2} fillOpacity={1} fill="url(#colorPrice)" />
+                    <Area type="monotone" dataKey="price" stroke="#6B46FF" strokeWidth={2} fillOpacity={1} fill="url(#colorPrice)" />
                 </AreaChart>
             </ResponsiveContainer>
         </div>

@@ -56,7 +56,7 @@ const Market: React.FC = () => {
                 </div>
 
                 {/* Controls Bar */}
-                <div className="sticky top-20 z-30 bg-white/80 backdrop-blur-md rounded-2xl shadow-soft p-4 mb-8 border border-neutral-divider">
+                <div className="sticky top-20 z-30 bg-neutral-card/80 backdrop-blur-md rounded-2xl shadow-soft p-4 mb-8 border border-neutral-divider">
                     <div className="flex flex-col md:flex-row items-center gap-4 justify-between">
                         {/* Search */}
                         <div className="relative w-full md:w-96">
@@ -80,7 +80,7 @@ const Market: React.FC = () => {
                                         key={cat}
                                         onClick={() => setActiveCategory(cat)}
                                         className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${activeCategory === cat
-                                            ? 'bg-white text-primary shadow-sm'
+                                            ? 'bg-neutral-strong text-neutral-bg shadow-sm'
                                             : 'text-neutral-muted hover:text-neutral-strong'
                                             }`}
                                     >
@@ -109,7 +109,7 @@ const Market: React.FC = () => {
                 {loading ? (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[...Array(6)].map((_, i) => (
-                            <div key={i} className="bg-white rounded-card h-[380px] animate-pulse" />
+                            <div key={i} className="bg-neutral-card rounded-card h-[380px] animate-pulse" />
                         ))}
                     </div>
                 ) : (

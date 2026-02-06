@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 @theme {
+  /* Dark Theme Colors */
   --color-primary: #6B46FF;
   --color-primary-start: #5E2DFF;
   --color-primary-end: #A56BFF;
 
-  --color-neutral-bg: #FAFBFF;
-  --color-neutral-card: #FFFFFF;
-  --color-neutral-muted: #6B7280;
-  --color-neutral-strong: #0F172A;
-  --color-neutral-divider: #E6E9F2;
+  --color-neutral-bg: #0A0A0A;
+  --color-neutral-card: #171717;
+  --color-neutral-muted: #9CA3AF;
+  --color-neutral-strong: #F3F4F6;
+  --color-neutral-divider: #262626;
 
   --color-positive: #10B981;
   --color-negative: #EF4444;

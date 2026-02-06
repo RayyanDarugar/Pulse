@@ -38,14 +38,18 @@ const ActivityTicker: React.FC = () => {
                         initial={{ opacity: 0, y: 20, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, x: 20 }}
-                        className="flex items-center gap-3 bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-soft border border-neutral-divider pointer-events-auto w-64"
+                        className="flex items-center gap-3 bg-neutral-card/90 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-neutral-divider w-64 transform transition-all hover:scale-105 hover:bg-neutral-card"
                     >
-                        <div className="w-8 h-8 rounded-full overflow-hidden bg-gray-200 shrink-0">
-                            <img src={item.avatar} alt="User" className="w-full h-full object-cover" />
-                        </div>
-                        <div className="flex flex-col min-w-0">
-                            <span className="text-sm font-medium text-neutral-strong truncate">{item.message}</span>
-                            <span className="text-xs text-neutral-muted">Just now</span>
+                        <img
+                            src={item.avatar}
+                            alt=""
+                            className="w-8 h-8 rounded-full border border-neutral-divider"
+                        />
+                        <div>
+                            <p className="text-xs font-medium text-neutral-strong">
+                                <span className="text-neutral-muted">User</span> bought <span className="text-positive font-bold">{item.amount}</span> of <span className="text-primary">@creator</span>
+                            </p>
+                            <p className="text-[10px] text-neutral-muted mt-0.5">Just now</p>
                         </div>
                     </motion.div>
                 ))}
@@ -55,3 +59,4 @@ const ActivityTicker: React.FC = () => {
 };
 
 export default ActivityTicker;
+

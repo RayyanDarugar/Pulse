@@ -19,8 +19,8 @@ const Landing = () => {
             {/* Hero Section */}
             <section className="relative pt-18 pb-16 overflow-hidden">
                 {/* Background Decor */}
-                <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-neutral-100 to-transparent -z-10" />
-                <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-10" />
+                <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-neutral-card/10 to-transparent -z-10" />
+                <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-3xl -z-10" />
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -39,7 +39,7 @@ const Landing = () => {
                                 >
                                     Explore Markets <ArrowRight size={20} />
                                 </Link>
-                                <Link to="/how-it-works" className="inline-flex items-center gap-2 bg-white text-gray-900 border border-gray-200 hover:bg-gray-50 px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-sm">
+                                <Link to="/how-it-works" className="inline-flex items-center gap-2 bg-neutral-card text-neutral-strong border border-neutral-divider hover:bg-neutral-card/80 px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-sm">
                                     How it Works
                                 </Link>
                             </div>
@@ -59,7 +59,7 @@ const Landing = () => {
             </section>
 
             {/* Trending Section */}
-            <section className="py-16 bg-white">
+            <section className="py-16 bg-neutral-card border-y border-neutral-divider">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between mb-10">
                         <div>
@@ -80,7 +80,7 @@ const Landing = () => {
             </section>
 
             {/* Features Strip */}
-            <section className="py-20 border-t border-neutral-divider bg-neutral-bg">
+            <section className="py-20 bg-neutral-bg">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                         <div className="p-6">
@@ -109,7 +109,7 @@ const Landing = () => {
             </section>
 
             {/* Social Proof Footer */}
-            <section className="py-12 bg-white border-t border-neutral-divider">
+            <section className="py-12 bg-neutral-card border-t border-neutral-divider">
                 <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-6">
                     <div>
                         <span className="text-2xl font-bold font-mono text-neutral-strong block">$2.4M</span>

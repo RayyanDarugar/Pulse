@@ -59,7 +59,7 @@ const Dashboard: React.FC = () => {
                 {/* Summary Row */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
                     {/* Portfolio Value */}
-                    <div className="bg-white p-6 rounded-2xl shadow-soft border border-neutral-divider relative overflow-hidden group">
+                    <div className="bg-neutral-card p-6 rounded-2xl shadow-soft border border-neutral-divider relative overflow-hidden group">
                         <div className="relative z-10">
                             <div className="flex items-center gap-2 text-neutral-muted mb-2">
                                 <TrendingUp size={18} />
@@ -78,7 +78,7 @@ const Dashboard: React.FC = () => {
                     </div>
 
                     {/* Available Balance */}
-                    <div className="bg-white p-6 rounded-2xl shadow-soft border border-neutral-divider relative overflow-hidden group">
+                    <div className="bg-neutral-card p-6 rounded-2xl shadow-soft border border-neutral-divider relative overflow-hidden group">
                         <div className="relative z-10">
                             <div className="flex items-center gap-2 text-neutral-muted mb-2">
                                 <Wallet size={18} />
@@ -97,7 +97,7 @@ const Dashboard: React.FC = () => {
                     </div>
 
                     {/* Creators Supported */}
-                    <div className="bg-white p-6 rounded-2xl shadow-soft border border-neutral-divider relative overflow-hidden group">
+                    <div className="bg-neutral-card p-6 rounded-2xl shadow-soft border border-neutral-divider relative overflow-hidden group">
                         <div className="relative z-10">
                             <div className="flex items-center gap-2 text-neutral-muted mb-2">
                                 <PieChart size={18} />
@@ -131,14 +131,14 @@ const Dashboard: React.FC = () => {
                                 {holdings.map((item) => (
                                     <div key={item.creator.id} className="relative">
                                         <CreatorCard creator={item.creator} />
-                                        <div className="absolute top-2 right-2 bg-neutral-strong text-white text-xs font-mono py-1 px-2 rounded-lg shadow-md z-10">
+                                        <div className="absolute top-2 right-2 bg-neutral-strong text-neutral-bg text-xs font-mono py-1 px-2 rounded-lg shadow-md z-10">
                                             Run: {item.quantity} TKN
                                         </div>
                                     </div>
                                 ))}
                             </div>
                         ) : (
-                            <div className="bg-white rounded-2xl border border-dashed border-neutral-divider p-12 text-center">
+                            <div className="bg-neutral-card rounded-2xl border border-dashed border-neutral-divider p-12 text-center">
                                 <div className="w-16 h-16 bg-neutral-bg rounded-full flex items-center justify-center mx-auto mb-4 text-neutral-400">
                                     <TrendingUp size={32} />
                                 </div>
@@ -154,11 +154,11 @@ const Dashboard: React.FC = () => {
                     {/* Allocation Chart (Simplified) */}
                     <div>
                         <h2 className="text-xl font-bold text-neutral-strong mb-6">Allocation</h2>
-                        <div className="bg-white p-6 rounded-2xl shadow-soft border border-neutral-divider">
+                        <div className="bg-neutral-card p-6 rounded-2xl shadow-soft border border-neutral-divider">
                             {holdings.length > 0 ? (
                                 <div className="space-y-6">
                                     {/* Visual Donut representation */}
-                                    <div className="relative w-48 h-48 mx-auto rounded-full bg-neutral-bg border-8 border-white shadow-inner flex items-center justify-center">
+                                    <div className="relative w-48 h-48 mx-auto rounded-full bg-neutral-bg border-8 border-neutral-card shadow-inner flex items-center justify-center">
                                         <span className="text-sm font-bold text-neutral-muted">Portfolio</span>
                                         {holdings.map((item, index) => (
                                             <div
