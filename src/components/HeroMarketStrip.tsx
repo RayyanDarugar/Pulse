@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { motion, useAnimation, useAnimationControls } from 'framer-motion';
+import { motion, useAnimationControls } from 'framer-motion';
 import CreatorCard from './CreatorCard'; // Using the simplified card or a specific mini version
 import type { Creator } from '../api/mockApi';
 
