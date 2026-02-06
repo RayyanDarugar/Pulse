@@ -30,8 +30,8 @@ const Header: React.FC = () => {
                     <Link to="/market" className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">
                         Market
                     </Link>
-                    <Link to="/landing" className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">
-                        About
+                    <Link to="/how-it-works" className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">
+                        How It Works
                     </Link>
                     {isAuthenticated && (
                         <Link to="/dashboard" className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">
@@ -94,7 +94,7 @@ const Header: React.FC = () => {
                 <div className="md:hidden border-t border-gray-100 bg-white">
                     <div className="space-y-1 px-4 py-6">
                         <Link to="/market" className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Market</Link>
-                        <Link to="/landing" className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>About</Link>
+                        <Link to="/how-it-works" className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>How It Works</Link>
                         {isAuthenticated && (
                             <>
                                 <Link to="/dashboard" className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Dashboard</Link>

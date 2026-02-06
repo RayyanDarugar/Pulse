@@ -11,6 +11,7 @@ import CreatorProfile from './pages/CreatorProfile';
 import Dashboard from './pages/Dashboard';
 import Auth from './pages/Auth';
 import Settings from './pages/Settings';
+import HowItWorks from './pages/HowItWorks';
 
 import TikTokFeed from './pages/demo/TikTokFeed';
 import TikTokProfile from './pages/demo/TikTokProfile';
@@ -27,6 +28,7 @@ const App: React.FC = () => {
           <Route element={<Layout />}>
             <Route path="/" element={<Navigate to="/landing" replace />} />
             <Route path="/landing" element={<Landing />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/market" element={<Market />} />
             <Route path="/creator/:id" element={<CreatorProfile />} />
             <Route path="/auth" element={<Auth />} />
