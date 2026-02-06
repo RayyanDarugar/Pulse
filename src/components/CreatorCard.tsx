@@ -1,55 +1,83 @@
-// Placeholders
 import { Link } from 'react-router-dom';
-import { TrendingUp } from 'lucide-react';
+import { TrendingUp, Users } from 'lucide-react';
 import type { Creator } from '../api/mockApi';
+import Badge from './Badge';
 
 interface CreatorCardProps {
     creator: Creator;
 }
 
 const CreatorCard: React.FC<CreatorCardProps> = ({ creator }) => {
+    // Determine status badge
+    // const isHot = Math.random() > 0.8;
+    const isTrending = Math.random() > 0.7;
+
+    // Mock sparkline data
+    const sparklineData = [40, 35, 45, 50, 48, 55, 60, 58, 65, 70];
+
     return (
         <Link
             to={`/creator/${creator.id}`}
-            className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-900/5 transition-all hover:shadow-md hover:ring-gray-900/10 hover:-translate-y-1"
+            className="group relative flex flex-col bg-white rounded-card border border-neutral-divider shadow-soft transition-all duration-200 hover:translate-y-[-6px] hover:shadow-glow hover:border-primary/30 overflow-hidden"
         >
-            <div className="aspect-[3/2] bg-gray-200 relative overflow-hidden">
-                <img
-                    src={creator.imageUrl}
-                    alt={creator.name}
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                <div className="absolute bottom-4 left-4 text-white opacity-0 transition-opacity group-hover:opacity-100">
-                    <span className="font-semibold">{creator.name}</span>
-                    <p className="text-xs text-gray-200">@{creator.handle}</p>
-                </div>
-            </div>
-            <div className="flex flex-1 flex-col p-6">
-                <div className="flex items-center gap-x-4 text-xs">
-                    <span className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
-                        {creator.tags[0]}
-                    </span>
-                    <span className="text-gray-500">{creator.region}</span>
-                </div>
-                <div className="group relative mt-4 flex-1">
-                    <h3 className="text-lg font-semibold leading-6 text-gray-900 group-hover:text-indigo-600">
-                        {creator.name}
-                    </h3>
-                    <p className="mt-2 line-clamp-3 text-sm leading-6 text-gray-600">
-                        {creator.shortBio}
-                    </p>
-                </div>
-                <div className="mt-6 flex items-center justify-between border-t border-gray-100 pt-4">
-                    <div className="flex flex-col">
-                        <span className="text-xs text-gray-500">Token Price</span>
-                        <span className="text-lg font-bold text-gray-900 flex items-center gap-1">
-                            ${creator.initialTokenPrice.toFixed(2)}
-                            <TrendingUp size={14} className="text-green-500" />
-                        </span>
+            {/* Top area: Avatar + Info */}
+            <div className="p-4 flex items-start justify-between">
+                <div className="flex items-center gap-3">
+                    <div className="relative">
+                        <img
+                            src={creator.imageUrl}
+                            alt={creator.name}
+                            className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm"
+                            loading="lazy"
+                        />
+                        <div className="absolute -bottom-1 -right-1 bg-green-500 w-3 h-3 rounded-full border-2 border-white" />
+                    </div>
+                    <div>
+                        <h3 className="text-neutral-strong font-semibold leading-tight group-hover:text-primary transition-colors">
+                            {creator.name}
+                        </h3>
+                        <span className="text-xs text-neutral-muted font-mono">@{creator.handle}</span>
                     </div>
                 </div>
+                {isTrending && <Badge label="Trending" type="trending" />}
+            </div>
+
+            {/* Center: Price & Metrics */}
+            <div className="px-4 pb-2">
+                <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-bold font-mono text-neutral-strong tracking-tight">
+                        ${creator.initialTokenPrice.toFixed(2)}
+                    </span>
+                    <span className="flex items-center text-sm font-medium text-positive">
+                        +2.4% <TrendingUp size={14} className="ml-1" />
+                    </span>
+                </div>
+
+                {/* Sparkline (Visual only using CSS/SVG) */}
+                <div className="h-8 w-full mt-2 flex items-end gap-0.5 opacity-50">
+                    {sparklineData.map((val, i) => (
+                        <div
+                            key={i}
+                            className={`flex-1 rounded-t-sm transition-all duration-300 group-hover:bg-primary`}
+                            style={{
+                                height: `${val}%`,
+                                backgroundColor: i === sparklineData.length - 1 ? '#10B981' : '#E6E9F2'
+                            }}
+                        />
+                    ))}
+                </div>
+
+                <div className="flex items-center gap-4 mt-3 text-xs text-neutral-muted">
+                    <span>Vol: <span className="text-neutral-strong font-mono">$24.5k</span></span>
+                    <span className="flex items-center gap-1"><Users size={12} /> 1.2k</span>
+                </div>
+            </div>
+
+            {/* Bottom: Action */}
+            <div className="p-4 mt-auto border-t border-neutral-divider/50 bg-neutral-bg/30">
+                <button className="w-full py-2 rounded-lg bg-white border border-neutral-divider text-sm font-medium text-neutral-strong group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all">
+                    Trade Token
+                </button>
             </div>
         </Link>
     );

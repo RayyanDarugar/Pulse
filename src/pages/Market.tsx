@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Search } from 'lucide-react';
 import { mockApi, type Creator } from '../api/mockApi';
 import CreatorCard from '../components/CreatorCard';
@@ -7,6 +7,11 @@ const Market: React.FC = () => {
     const [creators, setCreators] = useState<Creator[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
+    const [activeCategory, setActiveCategory] = useState<string>('All');
+    const [sortBy, setSortBy] = useState<'trending' | 'volume' | 'new'>('trending');
+
+    // Categories
+    const categories = ['All', 'Music', 'Gaming', 'Art', 'Tech', 'Vlogs'];
 
     useEffect(() => {
         const fetchCreators = async () => {
@@ -22,52 +27,103 @@ const Market: React.FC = () => {
         fetchCreators();
     }, []);
 
-    const filteredCreators = creators.filter(c =>
-        c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        c.handle.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        c.tags.some(t => t.toLowerCase().includes(searchTerm.toLowerCase()))
-    );
+    const filteredCreators = useMemo(() => {
+        return creators
+            .filter(c => {
+                const matchesSearch = c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    c.handle.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    c.tags.some(t => t.toLowerCase().includes(searchTerm.toLowerCase()));
+
+                const matchesCategory = activeCategory === 'All' || c.tags.some(t => t.toLowerCase() === activeCategory.toLowerCase());
+
+                return matchesSearch && matchesCategory;
+            })
+            .sort((a, b) => {
+                if (sortBy === 'volume') return b.tokenSupply - a.tokenSupply; // Mock metric
+                if (sortBy === 'new') return b.initialTokenPrice - a.initialTokenPrice; // Mock metric
+                return 0; // Default (Trending) is random/original order
+            });
+    }, [creators, searchTerm, activeCategory, sortBy]);
 
     return (
-        <div className="bg-gray-50 py-12 sm:py-16">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl text-center">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Creator Market</h2>
-                    <p className="mt-2 text-lg leading-8 text-gray-600">
-                        Discover and invest in the next generation of creative talent.
-                    </p>
+        <div className="bg-neutral-bg min-h-screen py-12">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                {/* Header */}
+                <div className="text-center mb-10">
+                    <h1 className="text-4xl font-bold text-neutral-strong">Marketplace</h1>
+                    <p className="mt-2 text-lg text-neutral-muted">Discover the next breakout creators.</p>
                 </div>
 
-                {/* Search / Filter */}
-                <div className="mx-auto mt-8 max-w-xl">
-                    <div className="relative rounded-md shadow-sm">
-                        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                            <Search className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                {/* Controls Bar */}
+                <div className="sticky top-20 z-30 bg-white/80 backdrop-blur-md rounded-2xl shadow-soft p-4 mb-8 border border-neutral-divider">
+                    <div className="flex flex-col md:flex-row items-center gap-4 justify-between">
+                        {/* Search */}
+                        <div className="relative w-full md:w-96">
+                            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <Search className="h-5 w-5 text-neutral-muted" />
+                            </div>
+                            <input
+                                type="text"
+                                className="block w-full rounded-xl border-neutral-divider bg-neutral-bg py-2.5 pl-10 text-neutral-strong placeholder:text-neutral-muted focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                placeholder="Search creators, tags..."
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
                         </div>
-                        <input
-                            type="text"
-                            className="block w-full rounded-md border-0 py-3 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            placeholder="Search creators, tags, or handles..."
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
+
+                        {/* Filters & Sort */}
+                        <div className="flex items-center gap-4 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
+                            <div className="flex bg-neutral-bg rounded-lg p-1 border border-neutral-divider shrink-0">
+                                {categories.map(cat => (
+                                    <button
+                                        key={cat}
+                                        onClick={() => setActiveCategory(cat)}
+                                        className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${activeCategory === cat
+                                            ? 'bg-white text-primary shadow-sm'
+                                            : 'text-neutral-muted hover:text-neutral-strong'
+                                            }`}
+                                    >
+                                        {cat}
+                                    </button>
+                                ))}
+                            </div>
+
+                            <div className="h-8 w-px bg-neutral-divider hidden md:block" />
+
+                            <select
+                                title="Sort creators"
+                                value={sortBy}
+                                onChange={(e) => setSortBy(e.target.value as any)}
+                                className="bg-transparent text-sm font-medium text-neutral-strong border-none focus:ring-0 cursor-pointer"
+                            >
+                                <option value="trending">Trending</option>
+                                <option value="volume">Top Volume</option>
+                                <option value="new">Newest</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
+                {/* Grid */}
                 {loading ? (
-                    <div className="mt-16 text-center">
-                        <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-indigo-600 border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
-                            <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
-                        </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {[...Array(6)].map((_, i) => (
+                            <div key={i} className="bg-white rounded-card h-[380px] animate-pulse" />
+                        ))}
                     </div>
                 ) : (
-                    <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {filteredCreators.map((creator) => (
                             <CreatorCard key={creator.id} creator={creator} />
                         ))}
                         {filteredCreators.length === 0 && (
-                            <div className="col-span-full text-center text-gray-500 py-12">
-                                No creators found matching "{searchTerm}"
+                            <div className="col-span-full flex flex-col items-center justify-center py-20 text-center">
+                                <div className="p-4 rounded-full bg-neutral-200/50 mb-4">
+                                    <Search size={32} className="text-neutral-400" />
+                                </div>
+                                <h3 className="text-lg font-semibold text-neutral-strong">No results found</h3>
+                                <p className="text-neutral-muted mt-1">Try adjusting your search or filters</p>
                             </div>
                         )}
                     </div>

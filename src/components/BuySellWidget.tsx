@@ -7,9 +7,10 @@ import clsx from 'clsx';
 interface BuySellWidgetProps {
     creator: Creator;
     currentPrice: number;
+    onSuccess?: () => void;
 }
 
-const BuySellWidget: React.FC<BuySellWidgetProps> = ({ creator, currentPrice }) => {
+const BuySellWidget: React.FC<BuySellWidgetProps> = ({ creator, currentPrice, onSuccess }) => {
     const { user, login, isAuthenticated, refreshUser } = useAuth();
     const [mode, setMode] = useState<'buy' | 'sell'>('buy');
     const [quantity, setQuantity] = useState<string>('1');
@@ -53,6 +54,7 @@ const BuySellWidget: React.FC<BuySellWidgetProps> = ({ creator, currentPrice }) 
             if (result.success) {
                 setMessage({ type: 'success', text: `Successfully ${mode === 'buy' ? 'bought' : 'sold'} ${parsedQty} tokens!` });
                 await refreshUser();
+                if (onSuccess) onSuccess();
             } else {
                 setMessage({ type: 'error', text: result.message || 'Transaction failed' });
             }

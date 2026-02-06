@@ -4,14 +4,23 @@ import { mockApi, type PricePoint } from '../api/mockApi';
 import { format } from 'date-fns';
 
 interface PriceChartProps {
-    creatorId: string;
+    creatorId?: string;
+    data?: PricePoint[];
 }
 
-const PriceChart: React.FC<PriceChartProps> = ({ creatorId }) => {
-    const [data, setData] = useState<PricePoint[]>([]);
-    const [loading, setLoading] = useState(true);
+const PriceChart: React.FC<PriceChartProps> = ({ creatorId, data: providedData }) => {
+    const [data, setData] = useState<PricePoint[]>(providedData || []);
+    const [loading, setLoading] = useState(!providedData);
 
     useEffect(() => {
+        if (providedData) {
+            setData(providedData);
+            setLoading(false);
+            return;
+        }
+
+        if (!creatorId) return;
+
         const fetchData = async () => {
             try {
                 const history = await mockApi.getPriceHistory(creatorId);
@@ -23,7 +32,7 @@ const PriceChart: React.FC<PriceChartProps> = ({ creatorId }) => {
             }
         };
         fetchData();
-    }, [creatorId]);
+    }, [creatorId, providedData]);
 
     if (loading) return <div className="h-64 w-full animate-pulse bg-gray-100 rounded-lg"></div>;
 

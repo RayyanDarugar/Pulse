@@ -1,7 +1,39 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
+  :root {
+    --color-primary-start: #5E2DFF;
+    --color-primary-end: #A56BFF;
+    --color-accent: #6B46FF;
+    --color-positive: #10B981;
+    --color-negative: #EF4444;
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'SFMono-Regular', 'Menlo', monospace;
+  }
+
   body {
-    @apply antialiased text-gray-900 bg-gray-50;
+    @apply antialiased text-neutral-strong bg-neutral-bg font-sans;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-start to-primary-end;
+  }
+
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-primary-start to-primary-end text-white;
   }
 }

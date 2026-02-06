@@ -1,112 +1,132 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { TrendingUp, Users, ShieldCheck } from 'lucide-react';
+import { ArrowRight, BarChart3, Globe, Shield } from 'lucide-react';
+import { useMemo } from 'react';
+import { mockCreators } from '../api/mockApi';
+import HeroMarketStrip from '../components/HeroMarketStrip';
+import ActivityTicker from '../components/ActivityTicker';
+import CreatorCard from '../components/CreatorCard';
 
-const Landing: React.FC = () => {
+const Landing = () => {
+    // Get top creators for the strip and grid
+    const trendingCreators = useMemo(() => mockCreators.slice(0, 6), []);
+    const marketStripCreators = useMemo(() => mockCreators.slice(0, 5), []);
+
     return (
-        <div className="bg-white">
+        <div className="relative min-h-screen pb-20">
+            {/* Live Activity Ticker */}
+            <ActivityTicker />
+
             {/* Hero Section */}
-            <div className="relative isolate px-6 pt-14 lg:px-8">
-                <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-                    <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style={{ clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' }}></div>
-                </div>
-                <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 text-center">
-                    <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-                        <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                            Announcing our Series A funding. <a href="#" className="font-semibold text-indigo-600"><span className="absolute inset-0" aria-hidden="true" />Read more <span aria-hidden="true">&rarr;</span></a>
-                        </div>
-                    </div>
-                    <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                        Pulse — invest in the creators you believe in.
-                    </h1>
-                    <p className="mt-6 text-lg leading-8 text-gray-600">
-                        Community-owned culture. Support your favorite creators, share in their success, and measure the impact of your community.
-                    </p>
-                    <div className="mt-10 flex items-center justify-center gap-x-6">
-                        <Link to="/market" className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            Explore Market
-                        </Link>
-                        <Link to="/landing" className="text-sm font-semibold leading-6 text-gray-900">
-                            Learn more <span aria-hidden="true">→</span>
-                        </Link>
-                    </div>
-                </div>
-                <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
-                    <div className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style={{ clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' }}></div>
-                </div>
-            </div>
+            <section className="relative pt-18 pb-16 overflow-hidden">
+                {/* Background Decor */}
+                <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-neutral-100 to-transparent -z-10" />
+                <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-10" />
 
-            {/* Feature Section */}
-            <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-24 sm:pb-32">
-                <div className="mx-auto max-w-2xl lg:text-center">
-                    <h2 className="text-base font-semibold leading-7 text-indigo-600">Invest in Culture</h2>
-                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                        Everything you need to support creators
-                    </p>
-                    <p className="mt-6 text-lg leading-8 text-gray-600">
-                        Buy creator tokens to unlock exclusive access, voting rights, and potential royalties.
-                    </p>
-                </div>
-                <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-                    <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3">
-                        <div className="relative pl-16">
-                            <dt className="text-base font-semibold leading-7 text-gray-900">
-                                <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-                                    <TrendingUp className="h-6 w-6 text-white" aria-hidden="true" />
-                                </div>
-                                Support Creators
-                            </dt>
-                            <dd className="mt-2 text-base leading-7 text-gray-600">
-                                Provide capital for creators to fund their next big project, album, or video series.
-                            </dd>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        {/* Left Column: Copy */}
+                        <div className="lg:col-span-5 flex flex-col items-start text-left">
+                            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-strong leading-[1.1]">
+                                Back creators before the world <span className="text-gradient">catches on.</span>
+                            </h1>
+                            <p className="mt-6 text-lg text-neutral-muted max-w-lg">
+                                Buy creator tokens to unlock access, share upside, and measure the impact of your community.
+                            </p>
+                            <div className="mt-8 flex flex-wrap gap-4">
+                                <Link
+                                    to="/market"
+                                    className="px-8 py-4 rounded-full bg-primary text-white font-semibold hover:bg-primary-start transition-all shadow-glow hover:shadow-lg flex items-center gap-2"
+                                >
+                                    Explore Markets <ArrowRight size={20} />
+                                </Link>
+                                <button className="px-8 py-4 rounded-full border border-neutral-divider text-neutral-muted font-medium hover:text-neutral-strong hover:bg-white transition-all">
+                                    How it works
+                                </button>
+                            </div>
+                            <p className="mt-4 text-sm text-neutral-muted flex items-center gap-2">
+                                <span className="w-2 h-2 rounded-full bg-positive animate-pulse" /> No funds required for demo
+                            </p>
                         </div>
-                        <div className="relative pl-16">
-                            <dt className="text-base font-semibold leading-7 text-gray-900">
-                                <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-                                    <Users className="h-6 w-6 text-white" aria-hidden="true" />
-                                </div>
-                                Share Ownership
-                            </dt>
-                            <dd className="mt-2 text-base leading-7 text-gray-600">
-                                Hold tokens to prove your loyalty and gain access to exclusive community channels.
-                            </dd>
-                        </div>
-                        <div className="relative pl-16">
-                            <dt className="text-base font-semibold leading-7 text-gray-900">
-                                <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-                                    <ShieldCheck className="h-6 w-6 text-white" aria-hidden="true" />
-                                </div>
-                                Measure Impact
-                            </dt>
-                            <dd className="mt-2 text-base leading-7 text-gray-600">
-                                Track the growth of your creator portfolio and see the direct impact of your support.
-                            </dd>
-                        </div>
-                    </dl>
-                </div>
-            </div>
 
-            {/* CTA Section */}
-            <div className="bg-indigo-50">
-                <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                        Ready to dive in?
-                        <br />
-                        Start exploring the marketplace today.
-                    </h2>
-                    <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
-                        <Link
-                            to="/market"
-                            className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        >
-                            Explore Market
-                        </Link>
-                        <Link to="/auth" className="text-sm font-semibold leading-6 text-gray-900">
-                            Create Account <span aria-hidden="true">→</span>
-                        </Link>
+                        {/* Right Column: Market Strip */}
+                        <div className="lg:col-span-7 w-full relative">
+                            <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-neutral-bg to-transparent z-10" />
+                            <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-neutral-bg to-transparent z-10" />
+                            <HeroMarketStrip creators={marketStripCreators} />
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            {/* Trending Section */}
+            <section className="py-16 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex items-center justify-between mb-10">
+                        <div>
+                            <h2 className="text-3xl font-bold text-neutral-strong">Trending Creators</h2>
+                            <p className="mt-2 text-neutral-muted">Movers and shakers in the last 24 hours.</p>
+                        </div>
+                        <Link to="/market" className="text-primary font-medium hover:underline">
+                            View all markets
+                        </Link>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {trendingCreators.map((creator) => (
+                            <CreatorCard key={creator.id} creator={creator} />
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Features Strip */}
+            <section className="py-20 border-t border-neutral-divider bg-neutral-bg">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        <div className="p-6">
+                            <div className="w-12 h-12 mx-auto bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4">
+                                <Globe size={24} />
+                            </div>
+                            <h3 className="text-lg font-bold text-neutral-strong">Support Global Talent</h3>
+                            <p className="mt-2 text-sm text-neutral-muted">Access creators from every corner of the world early in their journey.</p>
+                        </div>
+                        <div className="p-6">
+                            <div className="w-12 h-12 mx-auto bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4">
+                                <BarChart3 size={24} />
+                            </div>
+                            <h3 className="text-lg font-bold text-neutral-strong">Live Market Data</h3>
+                            <p className="mt-2 text-sm text-neutral-muted">Real-time price simulations and volume tracking for every token.</p>
+                        </div>
+                        <div className="p-6">
+                            <div className="w-12 h-12 mx-auto bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4">
+                                <Shield size={24} />
+                            </div>
+                            <h3 className="text-lg font-bold text-neutral-strong">Secure & Transparent</h3>
+                            <p className="mt-2 text-sm text-neutral-muted">Built on simulated blockchain logic for transparency and trust.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Social Proof Footer */}
+            <section className="py-12 bg-white border-t border-neutral-divider">
+                <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-6">
+                    <div>
+                        <span className="text-2xl font-bold font-mono text-neutral-strong block">$2.4M</span>
+                        <span className="text-sm text-neutral-muted">Total Volume Traded</span>
+                    </div>
+                    <div className="hidden md:block w-px h-12 bg-neutral-divider" />
+                    <div>
+                        <span className="text-2xl font-bold font-mono text-neutral-strong block">850+</span>
+                        <span className="text-sm text-neutral-muted">Creators Funded</span>
+                    </div>
+                    <div className="hidden md:block w-px h-12 bg-neutral-divider" />
+                    <div>
+                        <span className="text-2xl font-bold font-mono text-neutral-strong block">12k+</span>
+                        <span className="text-sm text-neutral-muted">Active Traders</span>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };

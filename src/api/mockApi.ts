@@ -1,6 +1,9 @@
 import creatorsData from '../../mock/creators.json';
 import userData from '../../mock/users.json';
 
+export const mockCreators = creatorsData;
+
+
 // Types
 export interface Creator {
     id: string;
