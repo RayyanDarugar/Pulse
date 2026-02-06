@@ -6,12 +6,17 @@ const TikTokFeed: React.FC = () => {
     return (
         <div className="bg-black text-white h-screen w-full overflow-y-scroll snap-y snap-mandatory relative text-sm sm:text-base font-sans antialiased">
             {/* Mock Video Container 1 */}
-            <div className="h-screen w-full snap-start relative bg-neutral-900 flex items-center justify-center">
-                {/* Background Placeholder */}
-                <div className="absolute inset-0 bg-gradient-to-b from-neutral-800 to-black opacity-50 z-0"></div>
-                <div className="z-0 text-neutral-500 font-bold text-2xl animate-pulse">
-                    Mock Video Playing...
-                </div>
+            <div className="h-screen w-full snap-start relative bg-neutral-900 flex items-center justify-center overflow-hidden">
+                {/* Background Video */}
+                <video
+                    className="absolute inset-0 w-full h-full object-cover z-0"
+                    src="https://assets.mixkit.co/videos/preview/mixkit-young-man-talking-to-the-camera-on-green-screen-42358-large.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60 z-10"></div>
 
                 {/* Overlay UI */}
                 <div className="absolute bottom-4 left-4 right-16 z-20 pb-4 pl-2">

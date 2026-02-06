@@ -12,7 +12,11 @@
       "twitter": "https://twitter.com/placeholder",
       "instagram": "https://instagram.com/placeholder"
     },
-    "tags": ["Art", "Digital", "Illustration"],
+    "tags": [
+      "Art",
+      "Digital",
+      "Illustration"
+    ],
     "region": "North America"
   },
   {
@@ -28,7 +32,11 @@
       "spotify": "https://spotify.com/placeholder",
       "youtube": "https://youtube.com/placeholder"
     },
-    "tags": ["Music", "Electronic", "Indie"],
+    "tags": [
+      "Music",
+      "Electronic",
+      "Indie"
+    ],
     "region": "Europe"
   },
   {
@@ -43,7 +51,11 @@
     "socialLinks": {
       "youtube": "https://youtube.com/placeholder"
     },
-    "tags": ["Tech", "Education", "Video"],
+    "tags": [
+      "Tech",
+      "Education",
+      "Video"
+    ],
     "region": "Global"
   },
   {
@@ -59,7 +71,11 @@
       "instagram": "https://instagram.com/placeholder",
       "tiktok": "https://tiktok.com/placeholder"
     },
-    "tags": ["Food", "Lifestyle", "Cooking"],
+    "tags": [
+      "Food",
+      "Lifestyle",
+      "Cooking"
+    ],
     "region": "Asia"
   },
   {
@@ -74,7 +90,10 @@
     "socialLinks": {
       "twitch": "https://twitch.tv/placeholder"
     },
-    "tags": ["Gaming", "Esports"],
+    "tags": [
+      "Gaming",
+      "Esports"
+    ],
     "region": "North America"
   },
   {
@@ -89,7 +108,11 @@
     "socialLinks": {
       "medium": "https://medium.com/placeholder"
     },
-    "tags": ["Writing", "Fiction", "Sci-Fi"],
+    "tags": [
+      "Writing",
+      "Fiction",
+      "Sci-Fi"
+    ],
     "region": "South America"
   },
   {
@@ -105,7 +128,11 @@
       "youtube": "https://youtube.com/placeholder",
       "instagram": "https://instagram.com/placeholder"
     },
-    "tags": ["Fitness", "Health", "Lifestyle"],
+    "tags": [
+      "Fitness",
+      "Health",
+      "Lifestyle"
+    ],
     "region": "Europe"
   },
   {
@@ -120,7 +147,30 @@
     "socialLinks": {
       "twitter": "https://twitter.com/placeholder"
     },
-    "tags": ["Crypto", "Finance", "News"],
+    "tags": [
+      "Crypto",
+      "Finance",
+      "News"
+    ],
     "region": "Global"
+  },
+  {
+    "id": "9",
+    "name": "Logan",
+    "handle": "curlyfriboi",
+    "shortBio": "I am spiderman 🕷️🕸️",
+    "longBio": "Csm is peak. God forbid a white boy catch a vibe. Join the spidey squad.",
+    "imageUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    "initialTokenPrice": 4.20,
+    "tokenSupply": 100000,
+    "socialLinks": {
+      "tiktok": "https://tiktok.com/@curlyfriboi"
+    },
+    "tags": [
+      "Comedy",
+      "Anime",
+      "Vlogs"
+    ],
+    "region": "North America"
   }
 ]

@@ -65,7 +65,7 @@ const TikTokProfile: React.FC = () => {
 
                 {/* Link to Pulse - The Main Interaction */}
                 <div className="px-6 text-sm font-semibold flex items-center justify-center w-full mb-6">
-                    <Link to="/creator/1" className="flex items-center gap-1 text-black hover:opacity-70 bg-gray-100 px-4 py-2 rounded-full w-full justify-center transition-colors">
+                    <Link to="/creator/9" className="flex items-center gap-1 text-black hover:opacity-70 bg-gray-100 px-4 py-2 rounded-full w-full justify-center transition-colors">
                         <LinkIcon size={14} className="text-gray-500" />
                         <span className="truncate">pulse.to/creator/logan</span>
                         <ArrowUpRight size={14} className="text-gray-400 ml-1" />
