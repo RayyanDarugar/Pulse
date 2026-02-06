@@ -10,7 +10,7 @@ const TikTokFeed: React.FC = () => {
                 {/* Background Video */}
                 <video
                     className="absolute inset-0 w-full h-full object-cover z-0"
-                    src="https://assets.mixkit.co/videos/preview/mixkit-young-man-talking-to-the-camera-on-green-screen-42358-large.mp4"
+                    src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
                     autoPlay
                     loop
                     muted
