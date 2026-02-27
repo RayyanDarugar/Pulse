@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, MoreHorizontal, Link as LinkIcon, ArrowUpRight, Heart } from 'lucide-react';
 
+import willzTalksImg from '../../assets/willz_talks.png';
+
 const TikTokProfile: React.FC = () => {
     return (
         <div className="bg-black min-h-screen w-full flex justify-center font-sans">
@@ -11,7 +13,7 @@ const TikTokProfile: React.FC = () => {
                     <Link to="/demo/feed" className="p-2 -ml-2">
                         <ChevronLeft size={24} />
                     </Link>
-                    <div className="font-bold text-lg">Logan</div>
+                    <div className="font-bold text-lg">Willz Talks</div>
                     <div className="p-2 -mr-2">
                         <MoreHorizontal size={24} />
                     </div>
@@ -21,12 +23,12 @@ const TikTokProfile: React.FC = () => {
                 <div className="flex flex-col items-center pt-6 pb-2">
                     <div className="w-24 h-24 rounded-full p-[2px] border-2 border-gray-200 mb-3 overflow-hidden">
                         <img
-                            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            src={willzTalksImg}
                             alt="Profile"
                             className="w-full h-full object-cover rounded-full"
                         />
                     </div>
-                    <h1 className="text-lg font-bold">@curlyfriboi</h1>
+                    <h1 className="text-lg font-bold">@willz.talks</h1>
 
                     {/* Stats */}
                     <div className="flex items-center gap-8 mt-4 mb-4 text-center">
@@ -59,16 +61,14 @@ const TikTokProfile: React.FC = () => {
 
                     {/* Bio */}
                     <div className="px-6 text-center text-sm space-y-1 mb-4">
-                        <p>I am spiderman 🕷️🕸️</p>
-                        <p>Csm is peak</p>
-                        <p>God forbid a white boy catch a vibe</p>
+                        <p>Spreading the truth</p>
                     </div>
 
                     {/* Link to Pulse - The Main Interaction */}
                     <div className="px-6 text-sm font-semibold flex items-center justify-center w-full mb-6">
-                        <Link to="/creator/9" className="flex items-center gap-1 text-black hover:opacity-70 bg-gray-100 px-4 py-2 rounded-full w-full justify-center transition-colors">
+                        <Link to="/creator/10" className="flex items-center gap-1 text-black hover:opacity-70 bg-gray-100 px-4 py-2 rounded-full w-full justify-center transition-colors">
                             <LinkIcon size={14} className="text-gray-500" />
-                            <span className="truncate">pulse.to/creator/logan</span>
+                            <span className="truncate">pulse.to/creator/willz.talks</span>
                             <ArrowUpRight size={14} className="text-gray-400 ml-1" />
                         </Link>
                     </div>

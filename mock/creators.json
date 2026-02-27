@@ -172,5 +172,24 @@
       "Vlogs"
     ],
     "region": "North America"
+  },
+  {
+    "id": "10",
+    "name": "Willz Talks",
+    "handle": "willz.talks",
+    "shortBio": "Spreading the truth",
+    "longBio": "Spreading the truth",
+    "imageUrl": "placeholder",
+    "initialTokenPrice": 1.50,
+    "tokenSupply": 250000,
+    "socialLinks": {
+      "tiktok": "https://tiktok.com/@willz.talks"
+    },
+    "tags": [
+      "News",
+      "Truth",
+      "Global"
+    ],
+    "region": "Global"
   }
 ]

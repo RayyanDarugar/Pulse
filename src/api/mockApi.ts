@@ -1,8 +1,10 @@
 import creatorsData from '../../mock/creators.json';
 import userData from '../../mock/users.json';
+import willzTalksImg from '../assets/willz_talks.png';
 
-export const mockCreators = creatorsData;
-
+export const mockCreators = creatorsData.map(c =>
+    c.id === '10' ? { ...c, imageUrl: willzTalksImg } : c
+);
 
 // Types
 export interface Creator {
@@ -33,7 +35,7 @@ export interface PricePoint {
 }
 
 // In-memory state
-let creators = [...creatorsData];
+let creators = [...mockCreators];
 let user: User = { ...userData, portfolio: userData.portfolio || {} };
 // Store current prices in memory. Start with initial prices.
 const currentPrices: Record<string, number> = {};

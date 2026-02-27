@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Heart, MessageCircle, Share2, Music2 } from 'lucide-react';
 
 import demoVideo from '../../assets/demo-video.mp4';
+import willzTalksImg from '../../assets/willz_talks.png';
 
 const TikTokFeed: React.FC = () => {
     return (
@@ -24,14 +25,14 @@ const TikTokFeed: React.FC = () => {
                     {/* Overlay UI */}
                     <div className="absolute bottom-4 left-4 right-16 z-20 pb-4 pl-2">
                         <Link to="/demo/profile" className="font-bold text-lg mb-2 block hover:underline cursor-pointer">
-                            @logan
+                            @willz.talks
                         </Link>
                         <p className="mb-2 leading-tight drop-shadow-md">
-                            He was genuinely being 100% deadass bro omg 💀 <span className="font-bold">#fyp</span>
+                            Sudan is being invaded by the UAE, through its proxy forces of the RSF. <span className="font-bold">#fyp</span>
                         </p>
                         <div className="flex items-center gap-2 text-xs opacity-90 mt-2">
                             <Music2 size={14} className="animate-spin-slow" />
-                            <span className="scrolling-text">Original Sound - Logan</span>
+                            <span className="scrolling-text">original sound - willz.talks</span>
                         </div>
                     </div>
 
@@ -40,7 +41,7 @@ const TikTokFeed: React.FC = () => {
                         <Link to="/demo/profile" className="relative group cursor-pointer">
                             <div className="w-12 h-12 rounded-full bg-white p-[1px] overflow-hidden border-2 border-white shadow-md transition-transform transform group-hover:scale-110">
                                 <img
-                                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    src={willzTalksImg}
                                     alt="Avatar"
                                     className="w-full h-full object-cover rounded-full"
                                 />
@@ -70,10 +71,10 @@ const TikTokFeed: React.FC = () => {
                             </div>
                             <span className="text-xs font-semibold drop-shadow-md">24.7K</span>
                         </div>
-                        <div className="animate-spin-slow w-10 h-10 bg-neutral-900 rounded-full border-4 border-neutral-700 flex items-center justify-center mt-4">
+                        <div className="animate-spin-slow w-10 h-10 bg-neutral-900 rounded-full border-4 border-neutral-700 flex items-center justify-center mt-4 overflow-hidden">
                             <img
-                                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                className="w-6 h-6 rounded-full"
+                                src={willzTalksImg}
+                                className="w-6 h-6 rounded-full object-cover"
                             />
                         </div>
                     </div>
